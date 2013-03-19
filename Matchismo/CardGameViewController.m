@@ -8,27 +8,28 @@
 
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "Deck.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck *deckOfPlayingCards;
+@property (strong, nonatomic) Deck *deck;
 @end
 
 @implementation CardGameViewController
 
-- (PlayingCardDeck*) deckOfPlayingCards
+- (Deck*) deck
 {
-    if (!_deckOfPlayingCards) {
-        _deckOfPlayingCards = [[PlayingCardDeck alloc]init];
+    if (!_deck) {
+        _deck = [[PlayingCardDeck alloc]init];
     }
     
-    return _deckOfPlayingCards;
+    return _deck;
 }
 
 - (IBAction)flipCard:(UIButton *)sender {
     
-    [sender setTitle:[[self.deckOfPlayingCards drawRandomCard] contents] forState:UIControlStateSelected];
+    [sender setTitle:[[self.deck drawRandomCard] contents] forState:UIControlStateSelected];
     
     sender.selected = !sender.isSelected;
     self.flipCount++;
