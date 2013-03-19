@@ -8,7 +8,6 @@
 
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
-#import "Card.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *flipLabel;
@@ -26,23 +25,10 @@
 
 - (IBAction)flipCard:(UIButton *)sender {
     
-    Card *randomCard = [self.deckOfPlayingCards drawRandomCard];
-    NSLog(@"drawn card: %@",randomCard);
+    [sender setTitle:[[self.deckOfPlayingCards drawRandomCard] contents] forState:UIControlStateSelected];
     
-    if(sender.isSelected) {
-        [sender setTitle:[randomCard contents] forState:UIControlStateSelected];
-        [sender setNeedsDisplay];
-        sender.selected = !sender.isSelected;
-    }
-    else {
-        sender.selected = !sender.isSelected;
-    }
-       
-    
-
+    sender.selected = !sender.isSelected;
     self.flipCount++;
-    
-    
 }
 
 - (void) setFlipCount:(int)flipCount
