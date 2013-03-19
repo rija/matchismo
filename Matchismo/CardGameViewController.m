@@ -17,10 +17,13 @@
 
 @implementation CardGameViewController
 
-- (void) viewDidLoad
+- (PlayingCardDeck*) deckOfPlayingCards
 {
-    [super viewDidLoad];
-    self.deckOfPlayingCards = [[PlayingCardDeck alloc]init];
+    if (!_deckOfPlayingCards) {
+        _deckOfPlayingCards = [[PlayingCardDeck alloc]init];
+    }
+    
+    return _deckOfPlayingCards;
 }
 
 - (IBAction)flipCard:(UIButton *)sender {
