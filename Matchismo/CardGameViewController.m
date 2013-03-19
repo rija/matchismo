@@ -29,6 +29,8 @@
     
     sender.selected = !sender.isSelected;
     self.flipCount++;
+    
+    
 }
 
 - (void) setFlipCount:(int)flipCount
@@ -37,7 +39,5 @@
     self.flipLabel.text = [NSString stringWithFormat:@"Flips: %d",self.flipCount];
     NSLog(@"flips updated to %d", self.flipCount);
 }
-
-
 
 @end
