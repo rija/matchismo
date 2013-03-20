@@ -29,7 +29,7 @@
     return nil;
 }
 
-- (id) initWithCardCount:(NSUInteger)count UsingDeck:(Deck *)deck
+- (id) initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck
 {
     self = [super init];
     if (self) {
