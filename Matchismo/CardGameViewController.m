@@ -12,6 +12,7 @@
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *flipLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
@@ -44,6 +45,7 @@
         cardButton.selected = card.isFaceUp;
         cardButton.enabled = !card.isUnplayable;
         cardButton.alpha = (card.isUnplayable) ? 0.3 : 1.0;
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d",self.game.score];
     }
     
 }
